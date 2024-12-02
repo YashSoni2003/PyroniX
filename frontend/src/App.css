@@ -2,11 +2,16 @@ body {
   background-image: url('https://img.freepik.com/free-vector/matrix-style-binary-code-digital-falling-numbers-blue-background_1017-37387.jpg?t=st=1733043537~exp=1733047137~hmac=de02e91907be969f04b33d873c8f3c84ba0def6721085ca16b532b824cec3af6&w=1060');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Ensures the background stays fixed while scrolling */
   margin: 0;
   font-family: 'Inter', sans-serif;
+  color: #ffffff;
 }
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -80,6 +85,7 @@ h1, h2, p {
   border-radius: 5px;
   margin: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
@@ -94,13 +100,15 @@ h1, h2, p {
   border-radius: 5px;
   margin: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
+
 
 .btn-secondary:hover {
   background-color: #5a6268;
 }
 
-Navigation Styles
+/* Navigation Styles */
 .nav {
   background-color: #333;
   padding: 1rem;
@@ -200,3 +208,19 @@ form button {
 
 
 
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  body {
+    background-size: auto 100%; /* Adjust for smaller devices */
+    background-attachment: scroll; /* Optimize for mobile performance */
+  }
+
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%; /* Full-width buttons on small screens */
+  }
+}
