@@ -1,8 +1,10 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
+import { useAuth } from "./store/auth";
 export default function Navbar() {
+  const { isLoggedIn } = useAuth();
   return (
-    
+
 
 
     <nav className="nav">
@@ -14,8 +16,18 @@ export default function Navbar() {
         <CustomLink to="/abtus">About</CustomLink>
         <CustomLink to="/Compiler">Compiler</CustomLink>
         <CustomLink to="/contact">Contact</CustomLink>
-        <CustomLink to="/register">Register</CustomLink>
-        <CustomLink to="/login">Login</CustomLink>
+        {isLoggedIn ? (
+          <li>
+            <CustomLink to="/logout">Logout</CustomLink>
+          </li>
+        ) : (
+          <>
+            <CustomLink to="/register">Register</CustomLink>
+
+            <CustomLink to="/login">Login</CustomLink>
+          </>
+        )}
+
       </ul>
     </nav>
   )

@@ -3,11 +3,19 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Ensures the background stays fixed while scrolling */
+  background-attachment: fixed;
+  height: 100vh; /* Ensure full height */
+  min-height: 100%; /* Ensure background covers even if content is less */
+  width: 100vw;
+  overflow: auto;
   margin: 0;
   font-family: 'Inter', sans-serif;
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure full cover */
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -59,22 +67,22 @@ body {
 }
 
  /* General Styles */
-body {
+/* body {
   background-color: #121212;
   color: #ffffff;
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-}
+} */
 
 h1, h2, p {
   margin: 0.5rem 0;
 }
 
-.hero-section, .about-page, .contact-page {
+/* .hero-section, .about-page, .contact-page {
   text-align: center;
   padding: 2rem 1rem;
-}
+} */
 
 /* Buttons */
 .btn-primary {
@@ -159,7 +167,20 @@ form input, form textarea {
 form button {
   margin-top: 1rem;
 }
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  width: 100%;
+  gap: 0rem; /* Add spacing between form and paragraph */
+}
 
+.form-container p {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem; /* Adjust font size for better alignment */
+}
 /* Map Container */
 .map-container {
   margin-top: 2rem;
@@ -169,58 +190,186 @@ form button {
   text-align: center;
   padding: 2rem;
   color: white;
+  display: flex; /* Flex layout to place form and image side by side */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Wrap items on smaller screens */
+  gap: 2rem; /* Space between form and image */
 }
 
-.auth-page form {
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.auth-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.auth-form {
+  flex: 1;
+  max-width: 400px;
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6); /* Optional: Slight background for contrast */
+  border-radius: 10px;
+}
+
+.auth-form form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
+}
+
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+
+.auth-page form {
+  flex: 1; /* Allow the form to take one part of the space */
   max-width: 400px;
   margin: 0 auto;
 }
 
-.auth-page label {
+.auth-page img {
+  flex: 1; /* Allow the image to take one part of the space */
+  max-width: 100%; /* Scale image proportionally */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 400px; /* Prevent the image from being too tall */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  object-fit: contain; /* Ensure the image is fully visible */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .auth-page {
+    flex-direction: column; /* Stack form and image vertically on small screens */
+  }
+
+  .auth-page img {
+    max-height: 250px; /* Adjust for smaller screens */
+  }
+}
+  .btn-primary, .btn-secondary {
+    width: 100%; /* Full-width buttons on small screens */
+  }
+
+
+
+
+
+.about-page {
+  padding: 2rem;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
   width: 100%;
 }
 
-.auth-page input {
-  padding: 0.5rem;
+.about-text {
+  flex: 1;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image {
+    margin-top: 1rem;
+  }
+}
+
+
+.hero-section {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-wrap: wrap; /* Allows for content to wrap in case of overflow */
+  overflow: auto; /* Ensures scrolling if content overflows */
+}
+
+.hero-content {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
   width: 100%;
-  border-radius: 5px;
-  border: none;
+  flex-wrap: wrap; /* Allows the content to wrap on smaller screens */
 }
 
-.auth-page button {
-  margin-top: 1rem;
+.hero-text {
+  flex: 1;
+  padding: 1rem;
 }
 
-.auth-page a {
-  color: #007bff;
-  text-decoration: none;
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
-.auth-page a:hover {
-  text-decoration: underline;
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
-
-
-
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  body {
-    background-size: auto 100%; /* Adjust for smaller devices */
-    background-attachment: scroll; /* Optimize for mobile performance */
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
   }
 
+  .hero-image {
+    margin-top: 1rem;
+  }
+
+  /* Ensure the hero section allows for scrolling on smaller screens */
   .hero-section {
-    padding: 2rem 1rem;
-  }
-
-  .btn-primary, .btn-secondary {
-    width: 100%; /* Full-width buttons on small screens */
+    min-height: auto;
   }
 }

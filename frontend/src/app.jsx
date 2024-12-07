@@ -1,10 +1,13 @@
 import Navbar from "./Navbar.jsx"
 import Contact from "./pages/contact.jsx"
 import About from "./pages/abtus.jsx"
-import Login from "./pages/login.jsx"
-import Register from "./pages/register.jsx"
+// import Login from "./pages/login.jsx"
+// import Register from "./pages/register.jsx"
 import Home from "./pages/Home.jsx"
 import Compiler from "./pages/Compiler.jsx"
+import Login from "./pages/Login_new.jsx"
+import Register from "./pages/Register_.jsx"
+import Logout from "./pages/Logout.jsx"
 
 import { Route, Routes } from "react-router-dom"
 
@@ -20,6 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/Compiler" element={<Compiler />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </div>
     </>
