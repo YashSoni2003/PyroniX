@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <div className="hero-image">
           <img
-            src="https://www.pngmart.com/files/22/Programmer-PNG-Image.png"
+            src="\images\home.png"
             alt="Hero Section"
             className="responsive-img"
           />

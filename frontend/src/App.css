@@ -197,7 +197,7 @@ form button {
   gap: 2rem; /* Space between form and image */
 }
 
-.auth-container {
+/* .auth-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,20 +205,20 @@ form button {
   gap: 2rem;
   max-width: 1200px;
   margin: auto;
-}
+} */
 
-.auth-image {
+/* .auth-image {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.auth-image img {
+/* .auth-image img {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
-}
+} */
 
 .auth-form {
   flex: 1;
@@ -229,18 +229,18 @@ form button {
   border-radius: 10px;
 }
 
-.auth-form form {
+/* .auth-form form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
+} */
 
-.auth-page {
+/* .auth-page {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-}
+} */
 
 
 .auth-page form {
@@ -259,18 +259,6 @@ form button {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
-  .auth-page {
-    flex-direction: column; /* Stack form and image vertically on small screens */
-  }
-
-  .auth-page img {
-    max-height: 250px; /* Adjust for smaller screens */
-  }
-}
-  .btn-primary, .btn-secondary {
-    width: 100%; /* Full-width buttons on small screens */
-  }
 
 
 
@@ -308,16 +296,6 @@ form button {
 }
 
 /* Responsive for smaller screens */
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-image {
-    margin-top: 1rem;
-  }
-}
 
 
 .hero-section {
@@ -357,19 +335,6 @@ form button {
   border-radius: 10px;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
 
-  .hero-image {
-    margin-top: 1rem;
-  }
 
-  /* Ensure the hero section allows for scrolling on smaller screens */
-  .hero-section {
-    min-height: auto;
-  }
-}
+

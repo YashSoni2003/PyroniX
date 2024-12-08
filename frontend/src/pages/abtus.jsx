@@ -22,7 +22,7 @@ export default function Abtus() {
         </div>
         <div className="about-image">
           <img
-            src="https://www.pngmart.com/files/About-Us-PNG-Free-Download.png"
+            src="\images\about.png"
             alt="About Us"
             className="responsive-img"
           />

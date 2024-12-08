@@ -42,13 +42,10 @@ const Login = () => {
         body: JSON.stringify(user),
       });
 
-      console.log("login form", response);
-
       const res_data = await response.json();
 
       if (response.ok) {
         storeTokenInLS(res_data.token);
-
         setUser({ email: "", password: "" });
         toast.success("Login successful");
         navigate(0); // Refresh the page to reflect the updated authentication state
@@ -56,7 +53,6 @@ const Login = () => {
         toast.error(
           res_data.extraDetails ? res_data.extraDetails : res_data.message
         );
-        console.log("invalid credential");
       }
     } catch (error) {
       console.log(error);
@@ -66,59 +62,66 @@ const Login = () => {
   return (
     <>
       <ToastContainer />
-      <section>
-        <main>
-          <div className="section-registration">
-            <div className="container grid grid-two-cols">
-              <div className="registration-image">
-                <img
-                  src="/images/login.png"
-                  alt=" let's fill the login form "
-                  width="500"
-                  height="500"
+      <section className="hero-section">
+        <main className="hero-content">
+          <div className="hero-image">
+            <img
+              src="/images/login.png"
+              alt=" let's fill the login form "
+              className="responsive-img"
+            />
+          </div>
+
+          <div className="auth-form">
+            <h1 className="main-heading mb-3">Login Form</h1>
+            <br />
+
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="enter your email"
+                  id="email"
+                  required
+                  autoComplete="off"
+                  value={user.email}
+                  onChange={handleInput}
                 />
               </div>
 
-              <div className="registration-form">
-                <h1 className="main-heading mb-3">login form</h1>
-                <br />
-
-                <form onSubmit={handleSubmit}>
-                  <div>
-                    <label htmlFor="email">email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="enter your email"
-                      id="email"
-                      required
-                      autoComplete="off"
-                      value={user.email}
-                      onChange={handleInput}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="password">password</label>
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="password"
-                      id="password"
-                      required
-                      autoComplete="off"
-                      value={user.password}
-                      onChange={handleInput}
-                    />
-                  </div>
-
-                  <br />
-                  <button type="submit" className="btn btn-submit">
-                    Login Now
-                  </button>
-                </form>
+              <div>
+                <label htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  id="password"
+                  required
+                  autoComplete="off"
+                  value={user.password}
+                  onChange={handleInput}
+                />
               </div>
-            </div>
+
+              <br />
+              <button
+                type="submit"
+                className="btn btn-submit"
+                style={{
+                  backgroundColor: "#007bff",
+                  color: "white",
+                  border: "none",
+                  padding: "0.75rem 1.5rem",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                  transition: "background-color 0.3s",
+                }}
+              >
+                Login Now
+              </button>
+            </form>
           </div>
         </main>
       </section>
