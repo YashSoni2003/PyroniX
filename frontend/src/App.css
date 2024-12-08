@@ -28,7 +28,7 @@ body {
 }
 
 .nav {
-  background-color: #333;
+  background-color:transparent;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -59,11 +59,11 @@ body {
 }
 
 .nav li.active {
-  background-color: #555;
+  background-color: transparent;
 }
 
 .nav li:hover {
-  background-color: #777;
+  background-color: transparent;
 }
 
  /* General Styles */
@@ -118,7 +118,7 @@ h1, h2, p {
 
 /* Navigation Styles */
 .nav {
-  background-color: #333;
+  background-color: transparent;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
