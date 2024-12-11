@@ -57,10 +57,10 @@ userSchema.methods.generateToken = async function () {
         email: this.email,
         isAdmin: this.isAdmin,
       },
-      process.env.JWT_SECRET_KEY,
+      process.env.JWT_SECRET_KEY || "default_secret_key",
       {
         expiresIn: "30d",
-      }
+      } 
     );
   } catch (error) {
     console.error(error);

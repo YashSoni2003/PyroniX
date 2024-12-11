@@ -6,6 +6,7 @@ const { exePy } = require('./exePy'); // Import exePy
 const Compiler = express();
 const cors = require('cors');
 const authRoute = require("./routers/auth-router");
+const contactRoute = require("./routers/contact-router");
 const mongoose = require("mongoose");
 
 const URI = "mongodb://localhost:27017/";
@@ -27,6 +28,7 @@ Compiler.use(cors());
 Compiler.use(express.json());
 Compiler.use(express.urlencoded({ extended: true }));
 Compiler.use("/api/auth", authRoute);
+Compiler.use("/api/form", contactRoute);
 
 Compiler.get('/', (req, res) => {
     res.json({ online: "compiler" });
