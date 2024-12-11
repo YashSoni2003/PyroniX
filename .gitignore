@@ -110,3 +110,5 @@ dist
 
 # Project local env files
 .local.env
+codes
+outputs

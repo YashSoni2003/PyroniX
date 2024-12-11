@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
-import { toast } from "react-toastify";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const [user, setUser] = useState({
     username: "",
@@ -42,20 +42,22 @@ const Register = () => {
       if (response.ok) {
         storeTokenInLS(res_data.token);
         setUser({ username: "", email: "", phone: "", password: "" });
-        toast.success("Registration successful");
+          toast.success("Registration successful");
         navigate("/");
       } else {
-        toast.error(
+        return toast.error(
           res_data.extraDetails ? res_data.extraDetails : res_data.message
         );
       }
     } catch (error) {
+      toast.error("Registration failed");
       console.log("register ", error);
     }
   };
 
   return (
     <>
+      <ToastContainer />
       <section className="hero-section">
         <main className="hero-content">
           <div className="hero-image">

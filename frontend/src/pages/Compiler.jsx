@@ -7,6 +7,8 @@ import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism-tomorrow.css';
 import axios from 'axios';
 import '../App.css';
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 // Code stubs for supported languages
 const stubs = {
@@ -32,7 +34,14 @@ function Compiler() {
   const [code, setCode] = useState(stubs[language]); // Editor content
   const [input, setInput] = useState(''); // Input for the program
   const [output, setOutput] = useState(''); // Output from the program
+  const navigate = useNavigate();
+  const { storeTokenInLS, API, isLoggedIn } = useAuth();
+  useEffect(() => {
+    if (!isLoggedIn) {
 
+      navigate("/login/");
+    }
+  }, [isLoggedIn, navigate]);
   // Update the editor content when the language changes
   useEffect(() => {
     setCode(stubs[language]);
@@ -51,7 +60,7 @@ function Compiler() {
     try {
       setOutput('');
       const { data } = await axios.post(
-        import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000/run',
+        import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001/run',
         payload
       );
       setOutput(data.output);
