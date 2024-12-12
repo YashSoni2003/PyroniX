@@ -1,6 +1,6 @@
 const express = require('express');
 
-const Compiler = express();
+const App = express();
 const cors = require('cors');
 const authRoute = require("./routers/auth-router");
 const contactRoute = require("./routers/contact-router");
@@ -21,16 +21,16 @@ const connectDb = async () => {
   }
 };
 connectDb();
-Compiler.use(cors());
-Compiler.use(express.json());
-Compiler.use(express.urlencoded({ extended: true }));
-Compiler.use("/api/auth", authRoute);
-Compiler.use("/api/form", contactRoute);
+App.use(cors());
+App.use(express.json());
+App.use(express.urlencoded({ extended: true }));
+App.use("/api/auth", authRoute);
+App.use("/api/form", contactRoute);
 
-Compiler.get('/', (req, res) => {
+App.get('/', (req, res) => {
     res.json({ online: "auth" });
 });
 
-Compiler.listen(3000, () => {
+App.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
